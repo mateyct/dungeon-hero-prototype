@@ -1,0 +1,17 @@
+# Blender 4.2.0 MTL File: 'BlockEnemy.blend'
+# www.blender.org
+
+newmtl MainColor
+Kd 0.800606 0.163359 0.120606
+Ks 0.500000 0.500000 0.500000
+Ke 0.100000 0.100000 0.100000
+Ni 1.450000
+d 1.000000
+illum 3
+Pr 0.063636
+Pm 0.607273
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000

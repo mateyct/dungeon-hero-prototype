@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhl2mk7s112g8"]
+
+[ext_resource type="PackedScene" uid="uid://dqerlvv81tahc" path="res://Scenes/Characters/player.tscn" id="1_dy856"]
+[ext_resource type="Script" path="res://Scenes/Characters/player.gd" id="2_m12pr"]
+
+[sub_resource type="Environment" id="Environment_dpc31"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ntxs"]
+size = Vector3(17.7615, 1, 17.2808)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l01yh"]
+albedo_color = Color(0.877676, 0.568521, 0.406959, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_accgq"]
+material = SubResource("StandardMaterial3D_l01yh")
+
+[node name="Root" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.648027, -0.636113, 0.418834, 0, 0.549927, 0.835213, -0.761617, -0.541241, 0.356368, 5.77223, 6.65998, 3.04446)
+environment = SubResource("Environment_dpc31")
+projection = 1
+fov = 51.3
+size = 20.0921
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.748852, 0.662738, 0, -0.662738, 0.748852, 0, 3.75171, 3.06227)
+shadow_enabled = true
+shadow_blur = 0.619
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.80795, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0269775, 0, 0.0643005)
+shape = SubResource("BoxShape3D_6ntxs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(17.6413, 0, 0, 0, 1, 0, 0, 0, 17.3136, 0, 0, 0)
+mesh = SubResource("BoxMesh_accgq")
+
+[node name="Player" parent="." instance=ExtResource("1_dy856")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59092, -4.31479, 0.308526)
+script = ExtResource("2_m12pr")
+
+[connection signal="input_event" from="Ground" to="Player" method="_on_ground_input_event"]

@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqerlvv81tahc"]
+
+[ext_resource type="ArrayMesh" uid="uid://c80e0lg5o2ivl" path="res://Models/enemies/blockEnemy/BlockEnemy.obj" id="1_0qxyf"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_x4uyc"]
+script/source = "using Godot;
+using System;
+
+public partial class Player : CharacterBody3D
+{
+	public const float Speed = 5.0f;
+	public const float JumpVelocity = 4.5f;
+
+	public override void _PhysicsProcess(double delta)
+	{
+		Vector3 velocity = Velocity;
+
+		/*
+		// Add the gravity.
+		if (!IsOnFloor())
+		{
+			velocity += GetGravity() * (float)delta;
+		}
+
+		// Handle Jump.
+		if (Input.IsActionJustPressed(\"ui_accept\") && IsOnFloor())
+		{
+			velocity.Y = JumpVelocity;
+		}
+		*/
+
+		// Get the input direction and handle the movement/deceleration.
+		// As good practice, you should replace UI actions with custom gameplay actions.
+		Vector2 inputDir = Input.GetVector(\"move_left\", \"move_right\", \"move_forward\", \"move_back\");
+		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
+		if (direction != Vector3.Zero)
+		{
+			velocity.X = direction.X * Speed;
+			velocity.Z = direction.Z * Speed;
+		}
+		else
+		{
+			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
+		}
+
+		Velocity = velocity;
+		MoveAndSlide();
+	}
+}
+"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dab1p"]
+radius = 0.978058
+height = 4.93026
+
+[node name="Player" type="CharacterBody3D"]
+script = SubResource("CSharpScript_x4uyc")
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.47197, 0)
+
+[node name="BlockEnemy" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.47197, 0)
+mesh = ExtResource("1_0qxyf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.47197, 0)
+shape = SubResource("CapsuleShape3D_dab1p")
