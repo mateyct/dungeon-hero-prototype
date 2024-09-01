@@ -1,0 +1,26 @@
+[remap]
+
+importer="3d_texture"
+type="CompressedTexture3D"
+uid="uid://8xsbay0xpoql"
+path="res://.godot/imported/1K-concrete_27-ao.jpg-27e3be5586cc2272cf5bd0f5f274e261.ctex3d"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Models/materials/concrete_27-1K/1K-concrete_27-ao.jpg"
+dest_files=["res://.godot/imported/1K-concrete_27-ao.jpg-27e3be5586cc2272cf5bd0f5f274e261.ctex3d"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/horizontal=8
+slices/vertical=8

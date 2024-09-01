@@ -13,7 +13,7 @@ func _physics_process(delta):
 	
 	if(direction != Vector3.ZERO):
 		var toLook : Basis = Basis.looking_at(direction.normalized())
-		basis = lerp(basis, toLook, .25)
+		$Pivot.basis = lerp($Pivot.basis, toLook, .25)
 
 	
 	velocity = direction.normalized()  * 14

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://csi2yvt2aorb"]
+
+[ext_resource type="Texture2D" uid="uid://dgyuns0544qxh" path="res://Models/materials/concrete_27-1K/1K-concrete_27-diffuse.jpg" id="1_awsrp"]
+[ext_resource type="Texture2D" uid="uid://umy8udg4pevv" path="res://Models/materials/concrete_27-1K/1K-concrete_27-normal.jpg" id="2_t8s8v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ntxs"]
+size = Vector3(17.7615, 1, 17.2808)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_psmby"]
+albedo_texture = ExtResource("1_awsrp")
+normal_enabled = true
+normal_texture = ExtResource("2_t8s8v")
+
+[sub_resource type="BoxMesh" id="BoxMesh_accgq"]
+material = SubResource("StandardMaterial3D_psmby")
+size = Vector3(0.1, 0.1, 0.1)
+subdivide_width = 2
+
+[node name="Ground" type="StaticBody3D"]
+transform = Transform3D(1.00091, 0, 0, 0, 1.00091, 0, 0, 0, 1.00091, 0, -4.80795, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.00001, 0, 0, 0, 1, 0.0269775, 0, 0.0643005)
+shape = SubResource("BoxShape3D_6ntxs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(170.026, 0, 0, 0, 9.638, 0, 0, 0, 166.868, 0, 0, 0)
+mesh = SubResource("BoxMesh_accgq")
