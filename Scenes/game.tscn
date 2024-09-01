@@ -17,7 +17,7 @@ material = SubResource("StandardMaterial3D_l01yh")
 [node name="Root" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.648027, -0.636113, 0.418834, 0, 0.549927, 0.835213, -0.761617, -0.541241, 0.356368, 5.77223, 6.65998, 3.04446)
+transform = Transform3D(1, 0, 0, 0, 0.550481, 0.834848, 0, -0.834848, 0.550481, 2.11186, 6.65998, 6.30398)
 environment = SubResource("Environment_dpc31")
 projection = 1
 fov = 51.3
@@ -42,5 +42,3 @@ mesh = SubResource("BoxMesh_accgq")
 [node name="Player" parent="." instance=ExtResource("1_dy856")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59092, -4.31479, 0.308526)
 script = ExtResource("2_m12pr")
-
-[connection signal="input_event" from="Ground" to="Player" method="_on_ground_input_event"]

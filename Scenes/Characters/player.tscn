@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqerlvv81tahc"]
+[gd_scene load_steps=5 format=3 uid="uid://dqerlvv81tahc"]
 
 [ext_resource type="ArrayMesh" uid="uid://c80e0lg5o2ivl" path="res://Models/enemies/blockEnemy/BlockEnemy.obj" id="1_0qxyf"]
 
@@ -50,6 +50,8 @@ public partial class Player : CharacterBody3D
 }
 "
 
+[sub_resource type="BoxMesh" id="BoxMesh_mfpnj"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dab1p"]
 radius = 0.978058
 height = 4.93026
@@ -60,9 +62,13 @@ script = SubResource("CSharpScript_x4uyc")
 [node name="Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.47197, 0)
 
-[node name="BlockEnemy" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.47197, 0)
+[node name="BlockEnemy" type="MeshInstance3D" parent="Pivot"]
 mesh = ExtResource("1_0qxyf")
+skeleton = NodePath("../..")
+
+[node name="Nose" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(0.121512, 0, 0, 0, 0.172353, 0, 0, 0, 1, -0.0124722, 1.67237, -0.908507)
+mesh = SubResource("BoxMesh_mfpnj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.47197, 0)
