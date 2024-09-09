@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmmcuoi7u15ic"]
+
+[ext_resource type="PackedScene" uid="uid://b2o76onfjarcb" path="res://Models/MainCharacter.glb" id="1_cidln"]
+
+[node name="MainCharacter2" instance=ExtResource("1_cidln")]
+
+[node name="Skeleton3D" parent="Armature_001" index="0"]
+bones/0/position = Vector3(0, 0.528292, 0)
+bones/5/rotation = Quaternion(0.850651, -1.52808e-16, -1.52808e-16, 0.525731)
+bones/6/rotation = Quaternion(0.280236, 0.0951101, -0.220048, 0.929516)
+bones/7/rotation = Quaternion(0.21565, 0.0980817, 0.00669698, 0.971509)
+bones/24/rotation = Quaternion(-0.353217, 0.194051, 0.202042, 0.892615)
+bones/25/rotation = Quaternion(-0.215585, -0.0116998, 0.00595472, 0.976397)
+bones/41/position = Vector3(-1.35019e-07, 0.528292, -2.98023e-08)
+bones/41/rotation = Quaternion(0.890903, 5.41442e-08, -1.06204e-07, -0.454194)
+bones/42/rotation = Quaternion(-0.44808, -0.104252, -0.208271, 0.863122)
+bones/45/position = Vector3(3.39722e-09, 0.528292, 2.98022e-08)
+bones/45/rotation = Quaternion(0.141126, 0.446638, 0.842047, 0.267498)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Armature_001Action"
